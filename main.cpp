@@ -18,10 +18,11 @@ struct pokemon {
     word pokedexID;
     word heldItem;
     word OTID;
-    word experience;
+    word SecretOTID;
+    dword experience;
     byte ability;
     byte abilityNumber;
-    word hitsRemaining;
+    byte hitsRemaining;
     byte bag;
     
     dword pid;
@@ -95,7 +96,14 @@ pokemon populateFields(unsigned char* pkm);
 int main() {
     unsigned char* pkm_bytes = readFileBytes("snorlax.pkx");
     pokemon* pkm = (pokemon*) pkm_bytes;
-    std::cout << pkm->pokedexID << "\n";
+    free(pkm_bytes);
+    std::cout << "ID: " << pkm->pokedexID << "\n";
+    std::cout << "Item: " << pkm->heldItem << "\n";
+    std::cout << "OT ID: " << pkm->OTID << "\n";
+    std::cout << "OT SID: " << pkm->SecretOTID << "\n";
+    std::cout << "Exp: " << pkm->experience << "\n";
+    std::cout << "Ability: " << pkm->ability << "\n";
+    std::cout << "Number: " << pkm->abilityNumber << "\n";
 
     return 0;
 }
@@ -125,20 +133,4 @@ long getFileSize(FILE *file) {
     lEndPos = ftell(file);
     fseek(file, lCurPos, 0);
     return lEndPos;
-}
-
-pokemon populateFields(unsigned char* bytes) {
-    pokemon pkm;
-    pkm.ability = bytes[0x14];
-    pkm.abilityNumber = bytes[0x15];
-    pkm.nature = bytes[0x1C];
-
-    pkm.hp_EV = bytes[0x1E];
-    pkm.atk_EV = bytes[0x1F];
-    pkm.def_EV = bytes[0x20];
-    pkm.speed_EV = bytes[0x21];
-    pkm.spa_EV = bytes[0x22];
-    pkm.spd_EV = bytes[0x23];
-    std::cout << pkm.ability;
-    return pkm;
 }
