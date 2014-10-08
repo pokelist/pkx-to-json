@@ -1,8 +1,7 @@
 #include <iostream>
 #include <stdio.h>
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+#include <stdint.h>
+#include <stdlib.h>
 
 typedef uint8_t byte;
 typedef uint16_t word;
@@ -51,15 +50,15 @@ struct pokemon {
     dword training;
     dword ribbons;
     
-    byte unusedOne[2];
+    byte unusedOne[3];
 
     byte contestMemoryRibbons;
     byte battleMemoryRibbons;
-    byte unusedTwo[5];
+    byte unusedTwo[6];
 
     // Block B
     // The name
-    byte name[23];
+    byte name[24];
     word nullTerminator;
 
     // Moves
@@ -112,6 +111,14 @@ int main() {
     std::cout << "Speed EV: " << (int) pkm->speed_EV << "\n";
     std::cout << "Spa EV: " << (int) pkm->spa_EV << "\n";
     std::cout << "Spd EV: " << (int) pkm->spd_EV << "\n";
+    std::cout << "Move 1 ID: " << (int) pkm->moveOneID << "\n";
+    std::cout << "Move 2 ID: " << (int) pkm->moveTwoID << "\n";
+    std::cout << "Move 3 ID: " << (int) pkm->moveThreeID << "\n";
+    std::cout << "Move 4 ID: " << (int) pkm->moveFourID << "\n";
+    std::cout << "Move 1 CurrPP: " << (int) pkm->moveOneCurrPP << "\n";
+    std::cout << "Move 2 CurrPP: " << (int) pkm->moveTwoCurrPP << "\n";
+    std::cout << "Move 1 PP: " << (int) pkm->moveOnePPups << "\n";
+    std::cout << "Move 2 PP: " << (int) pkm->moveTwoPPups << "\n";
     return 0;
 }
 
