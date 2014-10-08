@@ -28,6 +28,8 @@ struct pokemon {
     dword pid;
     byte nature;
 
+    byte variousFlags;
+
     // EV's
     byte hp_EV;
     byte atk_EV;
@@ -102,9 +104,14 @@ int main() {
     std::cout << "OT ID: " << pkm->OTID << "\n";
     std::cout << "OT SID: " << pkm->SecretOTID << "\n";
     std::cout << "Exp: " << pkm->experience << "\n";
-    std::cout << "Ability: " << pkm->ability << "\n";
-    std::cout << "Number: " << pkm->abilityNumber << "\n";
-
+    std::cout << "Ability: " << (int) pkm->ability << "\n";
+    std::cout << "Number: " << (int) pkm->abilityNumber << "\n";
+    std::cout << "HP EV: " << (int) pkm->hp_EV << "\n";
+    std::cout << "Atk EV: " << (int) pkm->atk_EV << "\n";
+    std::cout << "Def EV: " << (int) pkm->def_EV << "\n";
+    std::cout << "Speed EV: " << (int) pkm->speed_EV << "\n";
+    std::cout << "Spa EV: " << (int) pkm->spa_EV << "\n";
+    std::cout << "Spd EV: " << (int) pkm->spd_EV << "\n";
     return 0;
 }
 
