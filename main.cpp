@@ -87,7 +87,54 @@ struct pokemon {
     byte unusedThree;
 
     dword ivblock;
-    byte rest[111];
+    byte lastHandler[24];
+    word nullTerminatorTwo;
+    byte lastHandlerGender;
+    byte currentlyOwnedByOT;
+
+    word geolocationOne;
+    word geolocationTwo;
+    word geolocationThree;
+    word geolocationFour;
+    word geolocationFive;
+    word unusedFour;
+    word unusedFive;
+
+    byte handlerFriendship;
+    byte handlerAffection;
+    byte handlerMemoryIntensity;
+    byte handlerMemoryFeeling;
+    byte unusedSix;
+    word handlerMemoryTextVar;
+    word unusedSeven;
+    word unusedEight;
+    byte fullness;
+    byte enjoyment;
+
+    byte OTName[24];
+    word OTNameNullTerminator;
+    byte OTFriendship;
+    byte OTAffection;
+    byte OTMemoryIntensity;
+    byte OTMemoryLine;
+    word OTMemoryTextVar;
+    byte OTMemoryFeeling;
+
+    byte dateEggReceived[3];
+    byte dateMet[3];
+    byte unusedNine;
+    word eggLocation;
+    word metAtLocation;
+    byte pokeball;
+    byte encounterLevel;
+    byte encouterTypeGenIV;
+
+    byte OTGameID;
+    byte countryID;
+    byte regionID;
+    byte DSRegionID;
+    byte OTLanguageID;
+    dword unusedTen;
 };
 
 long getFileSize(FILE *file);
