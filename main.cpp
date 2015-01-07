@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string>
 
 typedef uint8_t byte;
 typedef uint16_t word;
@@ -142,30 +143,12 @@ unsigned char* readFileBytes(const char *name);
 pokemon populateFields(unsigned char* pkm);
 
 int main() {
-    unsigned char* pkm_bytes = readFileBytes("snorlax.pkx");
-    pokemon* pkm = (pokemon*) pkm_bytes;
-    free(pkm_bytes);
-    std::cout << "ID: " << pkm->pokedexID << "\n";
-    std::cout << "Item: " << pkm->heldItem << "\n";
-    std::cout << "OT ID: " << pkm->OTID << "\n";
-    std::cout << "OT SID: " << pkm->SecretOTID << "\n";
-    std::cout << "Exp: " << pkm->experience << "\n";
-    std::cout << "Ability: " << (int) pkm->ability << "\n";
-    std::cout << "Number: " << (int) pkm->abilityNumber << "\n";
-    std::cout << "HP EV: " << (int) pkm->hp_EV << "\n";
-    std::cout << "Atk EV: " << (int) pkm->atk_EV << "\n";
-    std::cout << "Def EV: " << (int) pkm->def_EV << "\n";
-    std::cout << "Speed EV: " << (int) pkm->speed_EV << "\n";
-    std::cout << "Spa EV: " << (int) pkm->spa_EV << "\n";
-    std::cout << "Spd EV: " << (int) pkm->spd_EV << "\n";
-    std::cout << "Move 1 ID: " << (int) pkm->moveOneID << "\n";
-    std::cout << "Move 2 ID: " << (int) pkm->moveTwoID << "\n";
-    std::cout << "Move 3 ID: " << (int) pkm->moveThreeID << "\n";
-    std::cout << "Move 4 ID: " << (int) pkm->moveFourID << "\n";
-    std::cout << "Move 1 CurrPP: " << (int) pkm->moveOneCurrPP << "\n";
-    std::cout << "Move 2 CurrPP: " << (int) pkm->moveTwoCurrPP << "\n";
-    std::cout << "Move 1 PP: " << (int) pkm->moveOnePPups << "\n";
-    std::cout << "Move 2 PP: " << (int) pkm->moveTwoPPups << "\n";
+    std::string json;
+    //unsigned char* pkm_bytes = readFileBytes("snorlax.pkx");
+    pokemon* pkm = (pokemon*) readFileBytes("snorlax.pkx");
+    //free(pkm_bytes);
+    
+    free(pkm);
     return 0;
 }
 
